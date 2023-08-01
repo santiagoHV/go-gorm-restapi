@@ -5,9 +5,8 @@ import "gorm.io/gorm"
 type User struct {
 	gorm.Model
 
-	Id        uint   `gorm:"primaryKey"` // Set field as primary key
-	FirstName string `gorm:"not null"`
-	LastName  string `gorm:"not null"`
-	Email     string `gorm:"not null" gorm:"unique"`
-	Tasks     []Task `gorm:"foreignKey:UserID"`
+	FirstName string `gorm:"not null" json:"first_name"`
+	LastName  string `gorm:"not null" json:"last_name"`
+	Email     string `gorm:"not null" gorm:"unique" json:"email"`
+	Tasks     []Task `gorm:"foreignKey:UserID" json:"tasks"`
 }
